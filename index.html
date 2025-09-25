@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SDG Hub</title>
+  <link rel="icon" href="favicon.png" />
+  <style>
+    :root{
+      --blue-900:#0a3550;
+      --blue-700:#0f5e8c;
+      --blue-100:#f2f7fb;
+      --ink:#0b2030;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--blue-100)}
+    header{background:linear-gradient(90deg,#0f5e8c,#1380c9);color:#fff}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:54px;height:54px;object-fit:contain}
+    .brand h1{font-size:1.4rem;margin:0;line-height:1.1}
+    .brand p{margin:2px 0 0;font-size:.95rem;opacity:.95}
+    nav{background:var(--blue-700)}
+    nav .wrap{justify-content:center;gap:24px}
+    nav a{color:#fff;text-decoration:none;font-weight:600;padding:10px 6px;border-bottom:3px solid transparent}
+    nav a.active,nav a:hover{border-color:#fff}
+    main{max-width:1100px;margin:20px auto;padding:0 20px}
+    section{display:none;background:#fff;border-radius:14px;padding:28px;box-shadow:0 8px 24px rgba(13,45,76,.06)}
+    section.active{display:block}
+    .hero{border-radius:12px;padding:18px;background:#fff}
+    .grid{display:grid;gap:18px}
+    @media(min-width:820px){.grid{grid-template-columns:1fr 1fr}}
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:var(--blue-100);border-radius:12px;padding:18px;text-align:center}
+    .card img{width:96px;height:96px;border-radius:50%;object-fit:cover}
+    form{display:grid;gap:12px;max-width:420px}
+    input,textarea{padding:12px;border:1px solid #d9e4ee;border-radius:10px;background:#fff}
+    button{background:var(--blue-700);color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:700}
+    button:hover{filter:brightness(1.05)}
+    footer{margin:28px 0 0;background:var(--blue-900);color:#fff}
+    footer .wrap{justify-content:center;padding:16px 20px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <img src="images/logo.png" alt="Logo SDG Hub" />
+        <div>
+          <h1>SDG Hub</h1>
+          <p>Conectando inovação, pesquisa e sustentabilidade</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="wrap">
+      <a href="#home" class="active" onclick="showSection('home', this)">Home</a>
+      <a href="#equipe" onclick="showSection('equipe', this)">Equipe</a>
+      <a href="#contato" onclick="showSection('contato', this)">Contato</a>
+    </div>
+  </nav>
+  <main>
+    <section id="home" class="active">
+      <div class="hero grid">
+        <div>
+          <h2>Bem-vindo ao SDG Hub</h2>
+          <p>Somos um núcleo colaborativo dedicado a acelerar soluções alinhadas aos Objetivos de Desenvolvimento Sustentável (ODS), com ênfase em portos, energia e cidades.</p>
+          <ul>
+            <li>Pesquisa aplicada e indicadores</li>
+            <li>Descarbonização e transição energética</li>
+            <li>Parcerias academia–indústria–governo</li>
+          </ul>
+        </div>
+        <div>
+          <img src="images/cover.jpg" alt="Conexões e sustentabilidade" style="width:100%;border-radius:12px;object-fit:cover;height:100%">
+        </div>
+      </div>
+    </section>
+    <section id="equipe">
+      <h2>Equipe</h2>
+      <div class="team">
+        <div class="card">
+          <img src="images/darliane.jpg" alt="Darliane Ribeiro Cunha" />
+          <h3>Darliane Ribeiro Cunha</h3>
+          <p>Fundadora & Pesquisadora. Sustentabilidade e descarbonização em portos.</p>
+          <p><a href="https://www.linkedin.com/in/darlianecunha/" target="_blank">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=BGRlXo0AAAAJ" target="_blank">Scholar</a></p>
+        </div>
+      </div>
+    </section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <form action="https://formspree.io/f/your-id" method="POST">
+        <input type="text" name="name" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <p style="margin-top:10px">Ou escreva para <a href="mailto:contato@sdghub.com.br">contato@sdghub.com.br</a></p>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <small>© 2025 SDG Hub • Inspirado nos ODS</small>
+    </div>
+  </footer>
+  <script>
+    function showSection(id, el){
+      document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      document.querySelectorAll("nav a").forEach(a=>a.classList.remove("active"));
+      if(el) el.classList.add("active");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+  </script>
+</body>
+</html>
